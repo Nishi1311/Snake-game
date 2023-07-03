@@ -26,8 +26,28 @@
     display: grid;
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(18, 1fr);
+   
     
 }
+.gamediv2{
+    
+    background: linear-gradient(pink, white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+    box-shadow: 3px 3px 7px grey;
+    padding: 3rem;
+    
+    
+}
+.gamediv2 p{
+    font-size: 2rem;
+    font-weight: 900;
+}
+
 
 
 
@@ -43,22 +63,134 @@
     border: .25vmin solid black;
     border-radius: 20px;
 }
-@media (max-width: 485px) {
-    .body{
-         position: relative;    
+.hidden{
+    display: none;
+}
+.btn1{
+    background: linear-gradient(blue,skyblue);
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    padding: 1rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 8rem;
+    margin-top: 3rem;
+}
+ .btn{
+    background: linear-gradient(white,skyblue);
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    padding: 1rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 8rem;
+    margin-top: 3rem;
+}
+.another-div{
+    display: flex;
+    flex-direction: column;
+    
+}
+@media (max-width:1114px){
+    .gamediv2{
+    
+        
+        gap: 0.5rem;
+        
+        padding: 1rem 1rem 1rem 1rem;
+        
+        
     }
-    #gamediv{
+    .gamediv2 p{
+        font-size: 1rem;
+        font-weight: 500;
+    } 
+    .btn,.btn1{
        
+        font-size: 1rem; 
+      
+        padding: 0.6rem;
+        
+        width: 6rem;
+        margin-top: 1rem;
+    }
+}
+@media (max-width:925px){
+   h1{
+    font-size: 1.5rem;
+   }
+}
+@media (max-width:866px){
+    h1{
+     font-size: 1rem;
+    }
+ }
+ @media (max-width:855px){
+    .body{
+        background: linear-gradient(green ,yellow);  
+       
+        gap:2rem;
+        
+        
+    }
+ }
+ @media (max-width:773px){
+
+    #gamediv{
+        
         width: 90vmin;
         height: 70vmax;
         
-        position: absolute;
-        top: 0;
+       
+        
     }
-}
-
-@media (max-width: 1030px) {
+    .gamediv2{
+    
+        
+        margin-top: 2rem;
+        display: block;
+        width: 70px;
+        
+        
+    }
+    .gamediv2 p{
+        font-size: 0.8rem;
+        font-weight: 500;
+    } 
+    h1{
+        font-size: 2rem;
+    }
     .body{
-        justify-self: start;;   
-   }
-}
+        flex-direction: column;
+        
+        
+        
+    }
+    .another-div{
+        
+        flex-direction:row;
+        
+    }
+    .gamediv1{
+        flex-direction:row; 
+    }
+    
+ }
+ @media (max-width:349px){
+    .another-div{
+        
+        flex-direction:column;
+        
+    }
+    .gamediv2{
+    
+        
+        margin-top: 0.5rem;
+        display: block;
+        width: 70px;
+        
+        
+    }
+ }

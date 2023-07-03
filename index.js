@@ -6,10 +6,14 @@ let speed = 5;
 let PaintTime = 0;
 let Score=0;
 let HighScore=0;
-let Play=false;
+var play=false;
+
+
 document.querySelector('.scorediv').textContent= Score;
 document.querySelector('.highscorediv').textContent= HighScore;
-let playbtn=document.querySelector('.btn')
+let playbtn=document.querySelector('.btn1')
+let playagainbtn=document.querySelector('.btn')
+playagainbtn.classList.add('hidden');
 let snake = [
     {x: 13, y: 15}
 ];
@@ -31,6 +35,7 @@ function isCollide(snake) {
     // If you bump into yourself 
     for (let i = 1; i < snake.length; i++) {
         if(snake[i].x === snake[0].x && snake[i].y === snake[0].y){
+            
             return true;
         }
     }
@@ -59,7 +64,14 @@ function gameEngine(){
     }
      // Part 1: Updating the snake array & Food
      if(isCollide(snake)){
-        gamepausemusic.play();
+        playagainbtn.classList.remove('hidden');
+        playbtn.classList.add('hidden');
+        
+        play=true;
+      
+       
+      
+        
         if(Score>HighScore){
             HighScore=Score
             document.querySelector('.highscorediv').textContent= HighScore;
@@ -68,7 +80,12 @@ function gameEngine(){
         document.querySelector('.msg').textContent='oops!Game Over.';
         
         snake = [{x: 13, y: 15}];
-        play=true
+        
+        
+        
+        
+        
+        
        
     }
 
@@ -107,76 +124,66 @@ function gameEngine(){
 
 
 window.requestAnimationFrame(main);
+// Start the game
+function keypress(){
+    playbtn.classList.add('hidden');
+    
 
-/*window.addEventListener('keydown', e =>{
-    dir = {x: 0, y: 1} // Start the game
+    window.addEventListener('keydown', e =>{
+   
+       
+    dir = {x: 0, y: 1}
     
     switch (e.key) {
         case "ArrowUp":
             
             dir.x = 0;
             dir.y = -1;
+            
             break;
 
         case "ArrowDown":
             
             dir.x = 0;
             dir.y = 1;
+           
             break;
 
         case "ArrowLeft":
             
             dir.x = -1;
             dir.y = 0;
+            
             break;
 
         case "ArrowRight":
             
             dir.x = 1;
             dir.y = 0;
+            
             break;
         default:
             break;
-    }
 
-});*/
+          
+    }
+  
+   
+   
+
+})};
+
+playbtn.addEventListener('click',keypress);
+
+
 //play again
-playbtn.addEventListener('click',function(){
+playagainbtn.addEventListener('click',function(){
 Score=0
 document.querySelector('.scorediv').textContent= Score;
 document.querySelector('.msg').textContent='Start the Game...';
+playagainbtn.classList.add('hidden');
+playbtn.classList.add('hidden');
 
-window.addEventListener('keydown', e =>{
-    dir = {x: 0, y: 1} // Start the game
-    
-    switch (e.key) {
-        case "ArrowUp":
-            
-            dir.x = 0;
-            dir.y = -1;
-            break;
 
-        case "ArrowDown":
-            
-            dir.x = 0;
-            dir.y = 1;
-            break;
-
-        case "ArrowLeft":
-            
-            dir.x = -1;
-            dir.y = 0;
-            break;
-
-        case "ArrowRight":
-            
-            dir.x = 1;
-            dir.y = 0;
-            break;
-        default:
-            break;
-    }
-
-});
 
 })
